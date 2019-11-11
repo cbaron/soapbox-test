@@ -4,6 +4,7 @@ const deriveProcessMessage = payload =>
   payload[`soapenv:Envelope`][`soapenv:Body`][0][`as:ProcessMessage`][0];
 
 const sanitizeValue = value => {
+  // hacky
   if (Array.isArray(value) && value.length === 1) {
     return sanitizeValue(value[0]);
   } else if (typeof value === "object") {
